@@ -18,7 +18,7 @@ export const hasConflict = (course, selected) => (
 // Ex: 'TuTh 10:00-11:20' -> { days: 'TuTh', hours: { start: 600, end: 680 } }
 const meetsPat = /^ *((?:M|Tu|W|Th|F)+) +(\d\d?):(\d\d) *[ -] *(\d\d?):(\d\d) *$/;
 
-const timeParts = meets => {
+export const timeParts = meets => {
   const [match, days, hh1, mm1, hh2, mm2] = meetsPat.exec(meets) || [];
   return !match ? {} : {
     days,
@@ -39,9 +39,26 @@ const addCourseTimes = course => ({
   ...timeParts(course.meets)
 });
 
+// Added by me
+const getCourseId = course => {
+  const termInitial = course.term.charAt(0);
+  return `${termInitial}${course.number}`;
+};
+
+const addCourseId = course => ({
+    ...course,
+    id: getCourseId(course)
+});
+
+const addCourseTimesAndId = course => {
+  return addCourseId(addCourseTimes(course));
+};
+
+// End of functions added by me
+
 export const addScheduleTimes = schedule => ({
   title: schedule.title,
-  courses: mapValues(addCourseTimes, schedule.courses)
+  courses: mapValues(addCourseTimesAndId, schedule.courses)
 });
 
 const days = ['M', 'Tu', 'W', 'Th', 'F'];
