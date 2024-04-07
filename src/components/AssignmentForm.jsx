@@ -1,13 +1,18 @@
+import { useLocation } from 'react-router-dom';
+
 const AssignmentForm = () => {
+  // const { state: assignment } = useLocation();
+
   return (
     <form className="row g-3">
+      {/* <input type="hidden" name="id" value={assignment.id} /> */}
       <div className="col-auto">
         <label htmlFor="course" className="form-label">Course</label>
-        <input type="text" className="form-control" id="course" />
+        <input type="text" className="form-control" id="course" placeholder="Ex: Math" />
       </div>
       <div className="col-auto">
         <label htmlFor="name" className="form-label">Assignment name</label>
-        <input type="text" className="form-control" id="name" />
+        <input type="text" className="form-control" id="name" placeholder="Ex: Problem set 1" />
       </div>
       <div className="col-auto">
         <label htmlFor="dueDate" className="form-label">Due date</label>

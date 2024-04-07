@@ -7,6 +7,7 @@ import { useData } from './utilities/firebase.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EditForm from './EditForm.jsx';
 import AssignmentForm from './components/AssignmentForm.jsx';
+import { addPriority } from './utilities/priority.js';
 
 const queryClient = new QueryClient();
 
@@ -17,14 +18,14 @@ const App = () => (
 );
 
 const Main = () => {
-//   const [schedule, loading, error] = useData('/', addScheduleTimes);
+  const [data, loading, error] = useData('/');
 
-//   if (error) return <h1>An error has occurred: {error.message}</h1>;
-//   if (loading) return <h1>Loading the schedule...</h1>;
+  if (error) return <h1>An error has occurred: {error.message}</h1>;
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <div className='container'>
-      <Banner title="title" />
+      <Banner title={data.title} />
       <AssignmentForm />
       {/* <BrowserRouter>
         <Routes>
