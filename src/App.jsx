@@ -6,15 +6,19 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { useData } from './utilities/firebase.js';
 // import EditForm from './components/EditForm.jsx';
 import AssignmentForm from './components/AssignmentForm.jsx';
+import './fonts/fonts.css';
 import AssignmentTable from './components/AssignmentTable.jsx';
 import { addAssignmentsInfo } from './utilities/priority.js';
+
 
 const queryClient = new QueryClient();
 
 const App = () => (
+  <div style={{backgroundColor: '#bd93bd', minHeight: '100vh'}} >
   <QueryClientProvider client={queryClient}>
     <Main />
   </QueryClientProvider>
+  </div>
 );
 
 const Main = () => {
@@ -24,8 +28,10 @@ const Main = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className='container'>
-      <Banner title={data.title} />
+    <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont'}}>
+      <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'ALBA', color: '#52007a'}} >
+        <Banner title={data.title} />
+      <div className='container'>
       <AssignmentForm />
       <AssignmentTable assignments={data.assignments} />
     </div>
@@ -35,6 +41,7 @@ const Main = () => {
 // Banner component
 const Banner = ({ title }) => (
   <h1>{ title }</h1>
+  
 );
 
 export default App;

@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'GoogleFont';
+    src: url('./google/static/TiltNeon-Regular.ttf') format('woff2');
+    /* Add additional font formats if necessary */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: 'ALBA';
+    src: url('./alba/ALBAS___.TTF') format('woff2');
+    /* Add additional font formats if necessary */
+    font-weight: normal;
+    font-style: normal;
+  }
