@@ -29,7 +29,7 @@ const Main = () => {
   return (
     <div className = 'container' style={{backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont'}}>
     <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'ALBA', color: '#52007a'}} >
-      <Banner title="PLAN OF ACTION"/>
+      <Banner title="TaskHub"/>
       
       {/* <BrowserRouter>
         <Routes>
