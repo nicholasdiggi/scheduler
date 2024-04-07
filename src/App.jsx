@@ -15,9 +15,9 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <div style={{backgroundColor: '#bd93bd', minHeight: '100vh'}} >
-  <QueryClientProvider client={queryClient}>
-    <Main />
-  </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <Main />
+    </QueryClientProvider>
   </div>
 );
 
@@ -31,7 +31,7 @@ const Main = () => {
     <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont'}}>
       <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'ALBA', color: '#52007a'}} >
         <Banner title={data.title} />
-      <div className='container'>
+      </div>
       <AssignmentForm />
       <AssignmentTable assignments={data.assignments} />
     </div>
