@@ -7,6 +7,11 @@ const CourseList = ({ courses }) => {
   const [term, setTerm] = useState('Fall'); // selected term (quarter)
   const [selected, setSelected] = useState([]); // selected courses
 
+    // FIXME?: maybe course.it === '' here too? idk though
+    if (selected.some(course => course !== courses[course.id])) {
+      setSelected([])
+    };
+
   // Find the courses that match the selected term
   const termCourses = Object.values(courses).filter(course => term === getCourseTerm(course));
 

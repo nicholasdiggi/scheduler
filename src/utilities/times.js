@@ -39,9 +39,32 @@ const addCourseTimes = course => ({
   ...timeParts(course.meets)
 });
 
+// Added by me
+const getCourseId = course => {
+  const termInitial = course.term.charAt(0);
+  return `${termInitial}${course.number}`;
+};
+
+const addCourseId = course => ({
+    ...course,
+    id: getCourseId(course)
+});
+
+const addCourseTimesAndId = course => {
+  // const new_course = addCourseTimes(course);
+  // if ("id" in new_course) {
+  //   return new_course;
+  // } else {
+  //   return addCourseId(new_course);
+  // }
+  return addCourseId(addCourseTimes(course));
+};
+
+// End of functions added by me
+
 export const addScheduleTimes = schedule => ({
   title: schedule.title,
-  courses: mapValues(addCourseTimes, schedule.courses)
+  courses: mapValues(addCourseTimesAndId, schedule.courses)
 });
 
 const days = ['M', 'Tu', 'W', 'Th', 'F'];

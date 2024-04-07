@@ -15,14 +15,6 @@ const App = () => (
   </QueryClientProvider>
 );
 
-// Get the schedule JSON data
-const fetchSchedule = async () => {
-  const url = 'https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php';
-  const response = await fetch(url);
-  if (!response.ok) throw response;
-  return addScheduleTimes(await response.json());
-};
-
 const Main = () => {
   const [schedule, loading, error] = useData('/', addScheduleTimes);
 
