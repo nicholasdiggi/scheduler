@@ -11,6 +11,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@datastructures-js/priority-queue": "^6.3.1",
     "@react-query-firebase/database": "^1.0.0-dev.2",
     "bootstrap": "^5.3.3",
     "firebase": "9.4",
