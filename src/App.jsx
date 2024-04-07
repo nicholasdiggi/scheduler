@@ -6,6 +6,7 @@ import CourseList from './components/CourseList.jsx';
 import { useData } from './utilities/firebase.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EditForm from './EditForm.jsx';
+import AssignmentForm from './components/AssignmentForm.jsx';
 
 const queryClient = new QueryClient();
 
@@ -16,20 +17,21 @@ const App = () => (
 );
 
 const Main = () => {
-  const [schedule, loading, error] = useData('/', addScheduleTimes);
+//   const [schedule, loading, error] = useData('/', addScheduleTimes);
 
-  if (error) return <h1>An error has occurred: {error.message}</h1>;
-  if (loading) return <h1>Loading the schedule...</h1>;
+//   if (error) return <h1>An error has occurred: {error.message}</h1>;
+//   if (loading) return <h1>Loading the schedule...</h1>;
 
   return (
     <div className='container'>
-      <Banner title={ schedule.title } />
-      <BrowserRouter>
+      <Banner title="title" />
+      <AssignmentForm />
+      {/* <BrowserRouter>
         <Routes>
           <Route path='/' element={<CourseList courses={ schedule.courses } />} />
           <Route path='/edit' element={ <EditForm /> } />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 };
