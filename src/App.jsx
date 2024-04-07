@@ -28,12 +28,16 @@ const Main = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont'}}>
+    <div className='container' style={{padding: '20px', backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont'}}>
       <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'ALBA', color: '#52007a'}} >
         <Banner title={data.title} />
       </div>
-      <AssignmentForm />
-      <AssignmentTable assignments={data.assignments} />
+      <div className='container' style={{padding: '20px', backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont', color: '#52007a'}} >
+        <AssignmentForm />
+        <div style={{padding: '20px'}}>
+          <AssignmentTable assignments={data.assignments} />
+        </div>
+      </div>
     </div>
   );
 };

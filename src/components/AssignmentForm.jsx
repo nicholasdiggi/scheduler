@@ -91,7 +91,7 @@ const AssignmentForm = () => {
         <div className="invalid-feedback">{errors?.importance}</div>
       </div>
       <div className="col-auto align-self-end">
-        {/* TODO: make button be on same line as iinput boxes */}
+        {/* TODO: make button be on same line as input boxes */}
         <button type="submit" className="btn btn-primary">+</button>
       </div>
     </form>
