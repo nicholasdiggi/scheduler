@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
-import { useForm } from './useForm';
-import { timeParts } from './utilities/times';
-import { setData } from './utilities/firebase';
+import { useForm } from '../utilities/useForm';
+import { timeParts } from '../utilities/times';
+import { setData } from '../utilities/firebase';
 
 // Require meets to be either an empty string, for courses not yet scheduled,
 // or a string that timeParts() can parse into day and time data
