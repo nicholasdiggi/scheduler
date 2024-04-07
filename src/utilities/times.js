@@ -51,12 +51,6 @@ const addCourseId = course => ({
 });
 
 const addCourseTimesAndId = course => {
-  // const new_course = addCourseTimes(course);
-  // if ("id" in new_course) {
-  //   return new_course;
-  // } else {
-  //   return addCourseId(new_course);
-  // }
   return addCourseId(addCourseTimes(course));
 };
 

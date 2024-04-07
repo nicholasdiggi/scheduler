@@ -22,9 +22,6 @@ const validateCourseData = (key, val) => {
   }
 };
 
-// // Displays the form data that would be submitted
-// const submit = (values) => alert(JSON.stringify(values));
-
 const submit = async (values) => {
   if (window.confirm(`Change ${values.id} to ${values.title}: ${values.meets}?`)) {
     try {
