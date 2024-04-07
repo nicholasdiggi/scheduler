@@ -8,6 +8,7 @@ const Assignment = ({ assignment }) => {
       <div className="card-body">
         <div className="row">
           <div className="col-md-1">
+            {/* TODO: turn checkbox into a button */}
             <input
               type="checkbox"
               id={`checkbox-${assignment.id}`}
