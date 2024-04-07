@@ -9,19 +9,19 @@ export const useForm = (validate, submit) => {
     const entries = Array.from(new FormData(form).entries());
 
     const findCourseAndRemoveSpaces = (entries) => {
-      entries.forEach(([key, val]) => {
+      for (let [key, val] of entries) {
         if (key === 'course') {
           return val.replace(/\s/g, '');
         }
-      });
+      }
     };
 
     const findNameAndRemoveSpaces = (entries) => {
-      entries.forEach(([key, val]) => {
+      for (let [key, val] of entries) {
         if (key === 'name') {
           return val.replace(/\s/g, '');
         }
-      });
+      }
     };
 
     const newEntries = [...entries, ['id', findCourseAndRemoveSpaces(entries) + findNameAndRemoveSpaces(entries)]];

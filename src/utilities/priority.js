@@ -1,4 +1,4 @@
-import { PriorityQueue } from '@datastructures-js/priority-queue';
+import { MinPriorityQueue } from '@datastructures-js/priority-queue';
 
 const mapValues = (fn, obj) => (
   Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, fn(value)]))
@@ -60,3 +60,17 @@ export const addAssignmentsInfo = data => ({
   courses: data.courses,
   assignments: mapValues(addAssignmentInfo, data.assignments)
 });
+
+export const sortAssignments = assignments => {
+  const priorityQueue = new MinPriorityQueue();
+  Object.values(assignments).forEach(assignment => {
+    priorityQueue.enqueue(assignment, assignment.priority);
+  });
+
+  const sortedAssignments = [];
+  while (!priorityQueue.isEmpty()) {
+    sortedAssignments.push(priorityQueue.dequeue());
+  }
+
+  return sortedAssignments;
+};
