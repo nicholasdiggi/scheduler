@@ -3,6 +3,7 @@ import './App.css';
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import { addScheduleTimes } from './utilities/times.js';
 import CourseList from './components/CourseList.jsx';
+import { useData } from './utilities/firebase.js';
 
 const queryClient = new QueryClient();
 
@@ -21,13 +22,15 @@ const fetchSchedule = async () => {
 };
 
 const Main = () => {
-  const { data: schedule, error, isLoading } = useQuery({
-    queryKey: ['schedule'],
-    queryFn: fetchSchedule
-  });
+  // const { data: schedule, error, isLoading } = useQuery({
+  //   queryKey: ['schedule'],
+  //   queryFn: fetchSchedule
+  // });
+
+  const [schedule, loading, error] = useData('/', addScheduleTimes);
 
   if (error) return <h1>An error has occurred: {error.message}</h1>;
-  if (isLoading) return <h1>Loading the schedule...</h1>;
+  if (loading) return <h1>Loading the schedule...</h1>;
 
   return (
     <div className='container'>
