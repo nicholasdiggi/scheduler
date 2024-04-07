@@ -8,25 +8,29 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EditForm from './EditForm.jsx';
 import AssignmentForm from './components/AssignmentForm.jsx';
 import { addPriority } from './utilities/priority.js';
+import './fonts/fonts.css';
 
 const queryClient = new QueryClient();
 
 const App = () => (
+  <div style={{backgroundColor: '#bd93bd', minHeight: '100vh'}} >
   <QueryClientProvider client={queryClient}>
     <Main />
   </QueryClientProvider>
+  </div>
 );
 
 const Main = () => {
-  const [data, loading, error] = useData('/');
+  // const [data, loading, error] = useData('/');
 
-  if (error) return <h1>An error has occurred: {error.message}</h1>;
-  if (loading) return <h1>Loading...</h1>;
+  // if (error) return <h1>An error has occurred: {error.message}</h1>;
+  // if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className='container'>
-      <Banner title={data.title} />
-      <AssignmentForm />
+    <div className = 'container' style={{backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont'}}>
+    <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'ALBA', color: '#52007a'}} >
+      <Banner title="PLAN OF ACTION"/>
+      
       {/* <BrowserRouter>
         <Routes>
           <Route path='/' element={<CourseList courses={ schedule.courses } />} />
@@ -34,12 +38,15 @@ const Main = () => {
         </Routes>
       </BrowserRouter> */}
     </div>
+    <AssignmentForm />
+    </div>
   );
 };
 
 // Banner component
 const Banner = ({ title }) => (
   <h1>{ title }</h1>
+  
 );
 
 export default App;
