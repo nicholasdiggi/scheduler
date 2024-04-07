@@ -1,4 +1,5 @@
 import { useForm } from '../utilities/useForm';
+import { setData } from '../utilities/firebase';
 
 const isValidCompletionTime = (completionTime) => {
   if (isNaN(completionTime)) {
@@ -32,8 +33,25 @@ const validateAssignmentData = (key, val) => {
   }
 };
 
-// TODO: change submit
-const submit = (values) => alert(JSON.stringify(values));
+// const submit = (values) => alert(JSON.stringify(values));
+
+const submit = async (values) => {
+  try {
+    await setData(
+      `assignments/${values.id}/`,
+      {
+        course: values.course,
+        name: values.name,
+        dueDate: values.dueDate,
+        dueTime: values.dueTime,
+        completionTime: values.completionTime,
+        importance: values.importance
+      }
+    );
+  } catch (error) {
+    alert(error);
+  }
+};
 
 const AssignmentForm = () => {
   // const { state: assignment } = useLocation();
@@ -41,7 +59,7 @@ const AssignmentForm = () => {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="{errors ? 'was-validated' : null} row g-3">
-      {/* <input type="hidden" name="id" value={assignment.id} /> */}
+      {/* <input type="hidden" name="id" value={} /> */}
       <div className="col-auto">
         <label htmlFor="course" className="form-label">Course</label>
         <input type="text" className="form-control" id="course" name="course" placeholder="Ex: Math" />
