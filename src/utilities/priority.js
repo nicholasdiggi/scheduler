@@ -36,7 +36,8 @@ const addPriority = assignment => {
 
 const addAssignmentId = assignment => {
   // Combine course and name after removing spaces from both
-  const assignmentId = assignment.course.replace(/\s/g, '') + assignment.name.replace(/\s/g, '');
+  // const assignmentId = assignment.course.replace(/\s/g, '') + assignment.name.replace(/\s/g, '');
+  const assignmentId = assignment.course + assignment.name;
   return {
     ...assignment,
     id: assignmentId

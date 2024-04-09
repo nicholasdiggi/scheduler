@@ -14,7 +14,7 @@ import { addAssignmentsInfo } from './utilities/priority.js';
 const queryClient = new QueryClient();
 
 const App = () => (
-  <div style={{backgroundColor: '#bd93bd', minHeight: '100vh'}} >
+  <div style={{backgroundColor: 'rgb(204, 196, 223)', minHeight: '100vh'}} >
     <QueryClientProvider client={queryClient}>
       <Main />
     </QueryClientProvider>
@@ -28,12 +28,16 @@ const Main = () => {
   if (loading) return <h1>Loading...</h1>;
 
   return (
-    <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'GoogleFont'}}>
-      <div className='container' style={{backgroundColor: '#f1ffe0', fontFamily: 'ALBA', color: '#52007a'}} >
+    <div className='container' style={{fontFamily: 'GoogleFont', color: 'rgb(029, 002, 053)'}}>
+      <div className='container' style={{padding: '20px', fontFamily: 'ALBA', color: '#52007a'}} >
         <Banner title={data.title} />
       </div>
-      <AssignmentForm />
-      <AssignmentTable assignments={data.assignments} />
+      <div className='container' style={{padding: '20px'}} >
+        <AssignmentForm />
+      </div>
+      <div className='container' style={{padding: '20px'}}>
+        <AssignmentTable assignments={data.assignments} />
+      </div>
     </div>
   );
 };

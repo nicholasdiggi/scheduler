@@ -11,7 +11,8 @@ export const useForm = (validate, submit) => {
     const findCourseAndRemoveSpaces = (entries) => {
       for (let [key, val] of entries) {
         if (key === 'course') {
-          return val.replace(/\s/g, '');
+          // return val.replace(/\s/g, '');
+          return val;
         }
       }
     };
@@ -19,7 +20,8 @@ export const useForm = (validate, submit) => {
     const findNameAndRemoveSpaces = (entries) => {
       for (let [key, val] of entries) {
         if (key === 'name') {
-          return val.replace(/\s/g, '');
+          // return val.replace(/\s/g, '');
+          return val;
         }
       }
     };
